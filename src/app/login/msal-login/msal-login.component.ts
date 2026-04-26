@@ -1,6 +1,6 @@
 
 import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
-import { CommonModule, NgIf } from '@angular/common';
+
 import { Router, RouterOutlet, RouterLink } from '@angular/router';
 import {
   MsalService,
@@ -23,7 +23,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-msal-login',
-  imports: [NgIf,CommonModule,MatProgressSpinnerModule],
+  imports: [MatProgressSpinnerModule],
   templateUrl: './msal-login.component.html',
   styleUrl: './msal-login.component.css'
 })

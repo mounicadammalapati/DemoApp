@@ -5,9 +5,9 @@
   <button mat-button> Welcome {{ userName }}</button>
   <button mat-icon-button (click)="logout()"> <!-- log out here -->
     <mat-icon mat-title="logoff"><span class="material-symbols-outlined">
-        exit_to_app</span></mat-icon>
+    exit_to_app</span></mat-icon>
   </button>
-  </mat-toolbar>
+</mat-toolbar>
 <div class="container">
   <div class="sidebar" [class.collapsed]="isCollapsed">
     <button class="toggle" (click)="isCollapsed = !isCollapsed">
@@ -31,15 +31,16 @@
     <!-- <mat-toolbar color="primary">Dashboard</mat-toolbar> -->
 
     <!-- Show dashboard content only if no child route is active -->
-    <div *ngIf="!isCreditCardRoute()" class="cards">
-      <mat-card style="width: 50%;height: 50%;">
-        <mat-card-content>
-          <div style="text-align: center;">
-            CreditCardNotification System
-            <button mat-raised-button color="accent" (click)='goToNotificationSystem()'>let's go</button>
-          </div>
-        </mat-card-content>
-      </mat-card>
+    @if (!isCreditCardRoute()) {
+      <div class="cards">
+        <mat-card style="width: 50%;height: 50%;">
+          <mat-card-content>
+            <div style="text-align: center;">
+              CreditCardNotification System
+              <button mat-raised-button color="accent" (click)='goToNotificationSystem()'>let's go</button>
+            </div>
+          </mat-card-content>
+        </mat-card>
         <mat-card style="width: 50%;height: 50%;">
           <mat-card-content>
             <div style="text-align: center;">
@@ -47,8 +48,9 @@
               <button mat-raised-button color="accent" (click)='goToStockApp()'>let's go</button>
             </div>
           </mat-card-content>
-          </mat-card>
-    </div>
+        </mat-card>
+      </div>
+    }
 
     <!-- Router outlet for child routes (creditcardExpiry) -->
     <router-outlet></router-outlet>

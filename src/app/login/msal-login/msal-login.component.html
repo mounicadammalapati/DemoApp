@@ -1,18 +1,20 @@
- <div class="container"> 
- <header>
+<div class="container">
+  <header>
     <h1>Redirecting to Dashboard</h1>
     <mat-progress-spinner
       mode="indeterminate"
       diameter="50"
       strokeWidth="5">
-      </mat-progress-spinner>
-  </header> 
- 
+    </mat-progress-spinner>
+  </header>
+
   <main>
     <!-- <router-outlet></router-outlet> -->
-    <div *ngIf="isIframe" class="iframe-warning">
-      <p>You are using an iframe. Some features may be limited.</p>
-    </div>
+    @if (isIframe) {
+      <div class="iframe-warning">
+        <p>You are using an iframe. Some features may be limited.</p>
+      </div>
+    }
   </main>
-</div> 
+</div>
 

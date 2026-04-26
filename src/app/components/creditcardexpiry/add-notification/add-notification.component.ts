@@ -5,7 +5,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDatepicker, MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule, MAT_DATE_FORMATS } from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
-import { CommonModule } from '@angular/common';
+
 import { MatCardModule } from '@angular/material/card';
 
 
@@ -23,8 +23,7 @@ export const MONTH_YEAR_FORMAT = {
 
 @Component({
   selector: 'app-add-notification',
-  imports: [ReactiveFormsModule,FormsModule,MatInputModule,MatButtonModule,MatDatepickerModule,
-    MatNativeDateModule,MatSelectModule,CommonModule,MatCardModule],
+  imports: [ReactiveFormsModule, FormsModule, MatInputModule, MatButtonModule, MatDatepickerModule, MatNativeDateModule, MatSelectModule, MatCardModule],
   providers: [
     { provide: MAT_DATE_FORMATS, useValue: MONTH_YEAR_FORMAT },
   ],

@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { Router, RouterOutlet, RouterLink } from '@angular/router';
 import {
   MsalService,
@@ -23,7 +23,7 @@ import { DashBoardComponent } from './components/dash-board/dash-board.component
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule,RouterOutlet],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })

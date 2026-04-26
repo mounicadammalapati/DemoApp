@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -10,9 +10,7 @@ import { MsalService } from '@azure/msal-angular';
 @Component({
   selector: 'app-dash-board',
   standalone: true,
-  imports: [CommonModule, MatIconModule, MatCardModule, MatToolbarModule, MatButtonModule, RouterOutlet, RouterLink,
-    MatToolbarModule
-  ],
+  imports: [MatIconModule, MatCardModule, MatToolbarModule, MatButtonModule, RouterOutlet, RouterLink, MatToolbarModule],
   templateUrl: './dash-board.component.html',
   styleUrl: './dash-board.component.css'
 })

@@ -5,7 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
-import { CommonModule } from '@angular/common';
+
 import { MatCardModule } from '@angular/material/card';
 import { Router } from '@angular/router';
 import { MSAL_GUARD_CONFIG, MsalBroadcastService, MsalGuardConfiguration, MsalService } from '@azure/msal-angular';
@@ -14,8 +14,7 @@ import { AuthenticationResult, EventMessage, InteractionStatus, InteractionType,
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule, FormsModule, MatInputModule, MatButtonModule, MatDatepickerModule,
-    MatNativeDateModule, MatSelectModule, CommonModule, MatCardModule],
+  imports: [ReactiveFormsModule, FormsModule, MatInputModule, MatButtonModule, MatDatepickerModule, MatNativeDateModule, MatSelectModule, MatCardModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

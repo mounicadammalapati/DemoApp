@@ -3,17 +3,19 @@
     <strong class="title">Stock Search</strong>
     <mat-form-field appearance="outline"  class="search-field">
       <mat-label>Search Stocks</mat-label>
-    <input matInput formControlName="searchSymbol" placeholder="Search stocks..." [matAutocomplete]="auto" />
-     <mat-autocomplete #auto="matAutocomplete">
-        <mat-option *ngFor="let stock of filteredStocks" [value]="stock.symbol" (onSelectionChange)="selectStock(stock)">
-          {{ stock.displaySymbol }} - {{ stock.description }}
-        </mat-option>
+      <input matInput formControlName="searchSymbol" placeholder="Search stocks..." [matAutocomplete]="auto" />
+      <mat-autocomplete #auto="matAutocomplete">
+        @for (stock of filteredStocks; track stock) {
+          <mat-option [value]="stock.symbol" (onSelectionChange)="selectStock(stock)">
+            {{ stock.displaySymbol }} - {{ stock.description }}
+          </mat-option>
+        }
       </mat-autocomplete>
 
       <span class="divider"></span>
       <button mat-icon-button matSuffix>
         <mat-icon>search</mat-icon>
-      </button>   
+      </button>
     </mat-form-field>
   </form>
 </div>

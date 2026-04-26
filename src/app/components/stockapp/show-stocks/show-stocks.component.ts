@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -14,9 +14,7 @@ import { ShowStockDetailsComponent } from '../show-stock-details/show-stock-deta
 
 @Component({
   selector: 'app-show-stocks',
-  imports: [CommonModule, MatInputModule, MatFormFieldModule, MatIconModule, MatButtonModule, ReactiveFormsModule, MatAutocompleteModule, MatSelectModule,
-    ShowStockDetailsComponent
-  ],
+  imports: [MatInputModule, MatFormFieldModule, MatIconModule, MatButtonModule, ReactiveFormsModule, MatAutocompleteModule, MatSelectModule, ShowStockDetailsComponent],
   templateUrl: './show-stocks.component.html',
   styleUrl: './show-stocks.component.css'
 })
