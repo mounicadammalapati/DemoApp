@@ -1,0 +1,29 @@
+<!-- Set background image using a div and CSS -->
+<div class="login-background">
+  <div class="flex-row" style="align-items: center;margin-left: 200px;">
+    <div class="flex-column">
+      <mat-card style="width: 200px;height: 200px;">
+        <mat-card-title style="text-align: center;margin-top: 20px;">Login</mat-card-title>
+        <mat-card-content>
+          <button mat-button color="primary" (click)="msalLogin()">msalLogin</button>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="flex-column">
+      <mat-card style="width: 200px;height: 200px;">
+        <mat-card-title style="text-align: center;margin-top: 20px;">Access Key</mat-card-title>
+        <mat-card-content>
+            <button mat-button color="primary" (click)="accessKeyLogin()">Access Key Login</button>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+ 
+ 
+  
+
+<!-- <div>
+  <button (click)="redirectToDashboard()">Dashboard</button>
+</div> -->

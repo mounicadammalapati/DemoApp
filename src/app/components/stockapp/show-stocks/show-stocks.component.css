@@ -1,0 +1,51 @@
+html, body, :host {
+	height: 100%;
+}
+
+div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 40vh;
+}
+
+input.mat-input-element {
+	border-radius: 25px !important;
+	background: #fff;
+	border: 1px solid #ccc;
+	padding: 8px 16px;
+}
+
+.search-field {
+  width: 400px;
+}
+
+/* Rounded pill shape */
+::ng-deep .search-field .mat-mdc-text-field-wrapper {
+  border-radius: 40px !important;
+  background-color: #e5e5e5 !important;
+}
+
+/* Remove default outline border */
+::ng-deep .search-field .mdc-notched-outline {
+  display: none;
+}
+
+/* Input styling */
+::ng-deep .search-field input {
+  padding-left: 10px;
+  font-size: 16px;
+}
+
+/* Divider line */
+.divider {
+  width: 1px;
+  height: 24px;
+  background-color: #888;
+  margin: 0 10px;
+}
+
+/* Align everything nicely */
+::ng-deep .search-field .mat-mdc-form-field-flex {
+  align-items: center;
+}

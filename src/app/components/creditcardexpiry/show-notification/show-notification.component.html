@@ -1,0 +1,14 @@
+<div *ngIf="!showAddNotification">
+    <div class="flex-row justify-end mb-2">
+        <button mat-button class="primary" (click)="showAddNotification = true">Add Notification</button>
+    </div>
+    <div class="flex-row">
+        <p>show-notification works!</p>
+    </div>
+</div>
+
+
+
+<app-add-notification *ngIf="showAddNotification">
+
+</app-add-notification>
