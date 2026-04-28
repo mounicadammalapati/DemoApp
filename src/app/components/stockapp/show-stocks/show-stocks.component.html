@@ -20,4 +20,6 @@
   </form>
 </div>
 
-<app-show-stock-details></app-show-stock-details>
+@if (selectedStock) {
+<app-show-stock-details [selectStockSymbol]="selectedStock.symbol"></app-show-stock-details>
+}

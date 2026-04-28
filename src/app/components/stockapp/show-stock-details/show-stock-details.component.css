@@ -1,0 +1,50 @@
+.stock-card {
+  max-width: 650px;
+  margin: 30px auto;
+  padding: 24px;
+  border-radius: 24px;   /* rounded shape */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.price-box {
+  margin-top: 20px;
+  padding: 24px;
+  border-radius: 20px;
+  background: #f5f9ff;
+}
+
+.price-box p {
+  margin: 0;
+  color: #64748b;
+}
+
+.price-box h1 {
+  margin: 8px 0 0;
+  font-size: 42px;
+  color: #2563eb;
+}
+
+.stats {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.stat-card {
+  flex: 1;
+  padding: 18px;
+  border-radius: 18px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  text-align: center;
+}
+
+.stat-card span {
+  display: block;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.stat-card strong {
+  font-size: 20px;
+}

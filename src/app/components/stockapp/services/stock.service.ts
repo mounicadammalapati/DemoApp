@@ -19,7 +19,7 @@ export class StockService {
   }
 
   getStockDetails(symbol: string) {
-    return this.http.get(`https://finnhub.io/api/v1/stock/quote?symbol=${symbol}&token=d7famg9r01qpjqqk46j0d7famg9r01qpjqqk46jg`);
+    return this.http.get('https://finnhub.io/api/v1/quote?symbol=AAPL&token=d7famg9r01qpjqqk46j0d7famg9r01qpjqqk46jg');
     //https://finnhub.io/api/v1/quote?symbol=AAPL&token=d7famg9r01qpjqqk46j0d7famg9r01qpjqqk46jg
   }
 }

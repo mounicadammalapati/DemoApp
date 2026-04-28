@@ -6,7 +6,6 @@ import { DashBoardComponent } from './components/dash-board/dash-board.component
 import { CreditcardexpiryComponent } from './components/creditcardexpiry/creditcardexpiry.component';
 import { loginRequest } from './auth-config';
 import { LoginComponent } from './login/login.component';
-import { access } from 'fs';
 import { AccessKeyLoginComponent } from './login/access-key-login/access-key-login.component';
 import { StockappComponent } from './components/stockapp/stockapp.component';
 // Temporarily removed MsalGuard to test if it's causing the error
@@ -23,15 +22,11 @@ export const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   {
     path: 'dashboard',
-    component: DashBoardComponent,
-    children: [
-      { path: 'creditcardExpiry', component: CreditcardexpiryComponent },
-      { path: 'stockapp', component: StockappComponent }
-    ]
+    loadChildren: () => import('./components/dash-board/dashboard-feature/dashboard-feature.module').then(m => m.DashboardFeatureModule)
   },
   {
     path: 'accesskeylogin',
-    component: AccessKeyLoginComponent
+    component: AccessKeyLoginComponent  
   },
   {
     path:'msal-login',

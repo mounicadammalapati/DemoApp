@@ -21,6 +21,7 @@ import { ShowStockDetailsComponent } from '../show-stock-details/show-stock-deta
 export class ShowStocksComponent implements OnInit {
   stockSearchForm!: FormGroup;
   filteredStocks: StockSymbol[] = [];
+  selectedStock: StockSymbol | null = null;
 
   private valueChangesSub?: Subscription;
 
@@ -47,12 +48,10 @@ export class ShowStocksComponent implements OnInit {
       });
   }
 
-  selectStock(stock: StockSymbol) {
-    
+  selectStock(stock: StockSymbol) {  
+    this.selectedStock = stock;
     // Unsubscribe from valueChanges to stop further suggestions
     this.valueChangesSub?.unsubscribe();
-
-    
   }
 }
 
