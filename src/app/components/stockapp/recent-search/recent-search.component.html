@@ -1,0 +1,41 @@
+<div>
+    <mat-card>
+        <mat-card-title>
+            <div class="flex-row">
+                <div class="flex-column flex-50" style="margin-left: 50px;">
+                    Recent Searches
+                </div>
+                <div class="flex-column flex-30" style="text-align: right;">
+                    <button mat-icon-button type="button" (click)="clearRecentSearches()"
+                        aria-label="Clear recent searches">
+                        <mat-icon>clear</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </mat-card-title>
+        <mat-card-content>
+            <div *ngIf="recentSearchStockInfo.length > 0">
+                <div class="recent-search-info" *ngFor="let stock of recentSearchStockInfo">
+                    <div class="stock-card">
+                        <div class="left">
+                            <div class="logo"><img src="{{stock.companyProfile.logo}}" width="32px" height="32px"
+                                    alt="{{stock.companyProfile.name}}"></div>
+                            <div>
+                                <div class="symbol">{{stock.stockSymbol.symbol}}</div>
+                                <div class="name">{{stock.companyProfile.name}}</div>
+                            </div>
+                        </div>
+
+                        <div class="right">
+                            <div class="price">${{stock.priceDetails.c}}</div>
+                            <div class="change positive">{{((stock.priceDetails.c - stock.priceDetails.pc) /
+                                stock.priceDetails.pc) * 100 }}%</div>
+                            <div class="time">Just now</div>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

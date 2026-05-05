@@ -9,7 +9,7 @@ import { StockService } from '../services/stock.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { StockSymbol, StockSymbolResults } from '../models/stocksmodels';
 import { MatSelectModule } from '@angular/material/select';
-import { debounceTime, distinctUntilChanged, switchMap, Subscription } from 'rxjs';
+import { debounceTime, distinctUntilChanged, switchMap, Subscription, filter } from 'rxjs';
 import { ShowStockDetailsComponent } from '../show-stock-details/show-stock-details.component';
 
 @Component({
@@ -31,7 +31,7 @@ export class ShowStocksComponent implements OnInit {
     this.stockSearchForm = this.fb.group({
       searchSymbol: ['']
     });
-    
+
     this.formChanges();
   }
 
@@ -40,6 +40,7 @@ export class ShowStocksComponent implements OnInit {
       .pipe(
         debounceTime(300),
         distinctUntilChanged(),
+        filter((value) => value && value.length > 0),
         switchMap((value) => this.stockService.getSuggestions(value))
       )
       .subscribe((data) => {
@@ -51,7 +52,7 @@ export class ShowStocksComponent implements OnInit {
   selectStock(stock: StockSymbol) {  
     this.selectedStock = stock;
     // Unsubscribe from valueChanges to stop further suggestions
-    this.valueChangesSub?.unsubscribe();
+    //this.valueChangesSub?.unsubscribe();
   }
 }
 

@@ -1,3 +1,24 @@
+.title-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.title-logo-right {
+  margin-left: 16px;
+}
+.company-profile-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.company-logo-right {
+  margin-left: auto;
+  order: 2;
+}
 .stock-card {
   max-width: 650px;
   margin: 30px auto;

@@ -8,7 +8,6 @@ export class StockSymbol {
   displaySymbol!: string;
   symbol!: string;
   type!: string;
-
 }
 
 export class StockPriceDetails{
@@ -17,4 +16,27 @@ export class StockPriceDetails{
   l!: number; // Low price of the day
   o!: number; // Open price of the day
   pc!: number; // Previous close price
+}
+
+export class RecentStockSearchDetails {
+  stockSymbol!: StockSymbol;
+  priceDetails!: StockPriceDetails;
+  companyProfile!: CompanyProfile;
+}
+
+
+export class CompanyProfile {
+  country!: string;
+  currency!: string;
+  estimateCurrency!: string;
+  exchange!: string;
+  finnhubIndustry!: string;
+  ipo!: string;
+  logo!: string;
+  marketCapitalization!: number;
+  name!: string;
+  phone!: string;
+  shareOutstanding!: number;
+  ticker!: string;
+  weburl!: string;
 }
