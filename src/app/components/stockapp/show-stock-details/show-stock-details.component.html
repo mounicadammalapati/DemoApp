@@ -1,48 +1,90 @@
 <mat-tab-group>
   <mat-tab label="Current Stock Data">
-    <mat-card class="stock-card" *ngIf="stockPriceDetails">
-      <mat-card-header>
-        <mat-card-title>
-          <span class="title-flex">
-            <span>{{companyProfile.name}} ({{selectStockSymbol()}})</span>
-            <img *ngIf="companyProfile" [src]="companyProfile.logo" width="32px" height="32px"
-              alt="{{companyProfile.name}} Logo" class="company-logo title-logo-right" />
-          </span>
-        </mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <div class="price-box">
-          <p>Current Price</p>
-          <h1>{{stockPriceDetails.c}}</h1>
-        </div>
-        <div class="stats">
-          <div class="stat-card">
-            <span>High Price</span>
-            <strong>{{stockPriceDetails.h}}</strong>
+    <div class="stock-details-layout" *ngIf="stockPriceDetails">
+      <mat-card class="stock-card stock-card--main">
+        <mat-card-header>
+          <mat-card-title>
+            <span class="title-flex">
+              <span>{{ companyProfile.name }} ({{ selectStockSymbol() }})</span>
+              <img
+                *ngIf="companyProfile"
+                [src]="companyProfile.logo"
+                width="32"
+                height="32"
+                alt="{{ companyProfile.name }} Logo"
+                class="company-logo title-logo-right"
+              />
+            </span>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="price-box">
+            <p>Current Price</p>
+            <h1>{{ stockPriceDetails.c }}</h1>
           </div>
-          <div class="stat-card">
-            <span>Low Price</span>
-            <strong>{{stockPriceDetails.l}}</strong>
+          <div class="stats">
+            <div class="stat-card">
+              <span>High Price</span>
+              <strong>{{ stockPriceDetails.h }}</strong>
+            </div>
+            <div class="stat-card">
+              <span>Low Price</span>
+              <strong>{{ stockPriceDetails.l }}</strong>
+            </div>
+            <div class="stat-card">
+              <span>Open Price</span>
+              <strong>{{ stockPriceDetails.o }}</strong>
+            </div>
           </div>
-          <div class="stat-card">
-            <span>Open Price</span>
-            <strong>{{stockPriceDetails.o}}</strong>
+          <div class="price-box company-profile-box" *ngIf="companyProfile">
+            <div class="company-details">
+              <h2>About Company</h2>
+              <p><strong>Industry:</strong> {{ companyProfile.finnhubIndustry }}</p>
+              <p><strong>Country:</strong> {{ companyProfile.country }}</p>
+              <p><strong>IPO Date:</strong> {{ companyProfile.ipo }}</p>
+              <p>
+                <strong>Market Capitalization:</strong>
+                {{ companyProfile.marketCapitalization | currency }}
+              </p>
+              <p><strong>Shares Outstanding:</strong> {{ companyProfile.shareOutstanding | number }}</p>
+              <p>
+                <strong>Company Webpage:</strong>
+                <a [href]="companyProfile.weburl" target="_blank" rel="noopener noreferrer">{{
+                  companyProfile.weburl
+                }}</a>
+              </p>
+            </div>
           </div>
-        </div>
-        <div class="price-box company-profile-box" *ngIf="companyProfile">
-          <div class="company-details">
-            <h2>About Company</h2>
-            <p><strong>Industry:</strong> {{companyProfile.finnhubIndustry}}</p>
-            <p><strong>Country:</strong> {{companyProfile.country}}</p>
-            <p><strong>IPO Date:</strong> {{companyProfile.ipo}}</p>
-            <p><strong>Market Capitalization:</strong> {{companyProfile.marketCapitalization | currency}}</p>
-            <p><strong>Shares Outstanding:</strong> {{companyProfile.shareOutstanding | number}}</p>
-            <p><strong>Company Webpage:</strong>
-              <a [href]="companyProfile.weburl" target="_blank">{{companyProfile.weburl}}</a>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="stock-card ai-recommendations-card">
+        <mat-card-header>
+          <mat-card-title class="ai-recommendations-card__title">
+            <mat-icon color="primary" aria-hidden="true">smart_toy</mat-icon>
+            <span>AI recommendations</span>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="ai-recommendations-card__body">
+          <div *ngIf="aiRecommendationLoading" class="ai-recommendations-card__loading">
+            <mat-progress-spinner mode="indeterminate" diameter="36"></mat-progress-spinner>
+            <p>Fetching recommendation…</p>
+          </div>
+          <ng-container *ngIf="!aiRecommendationLoading && aiRecommendation">
+            <p><strong>Recommendation:</strong> {{ aiRecommendation.recommendation }}</p>
+            <p>
+              <strong>Confidence:</strong>
+              <span matTooltip="How confident the AI is in this recommendation (0–100%)">
+                {{ aiRecommendation.confidence | percent : '1.0-2' }}
+              </span>
             </p>
-          </div>
-        </div>
-      </mat-card-content>
-    </mat-card>
+            <p><strong>Reasoning:</strong> {{ aiRecommendation.reasoning }}</p>
+            <p *ngIf="aiRecommendationTimestamp">
+              <small class="timestamp">Generated: {{ aiRecommendationTimestamp | date : 'short' }}</small>
+            </p>
+          </ng-container>
+        </mat-card-content>
+      </mat-card>
+    </div>
   </mat-tab>
 </mat-tab-group>

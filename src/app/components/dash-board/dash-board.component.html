@@ -33,20 +33,25 @@
     <!-- Show dashboard content only if no child route is active -->
     @if (!isCreditCardRoute()) {
       <div class="cards">
-        <mat-card style="width: 50%;height: 50%;">
-          <mat-card-content>
-            <div style="text-align: center;">
-              CreditCardNotification System
-              <button mat-raised-button color="accent" (click)='goToNotificationSystem()'>let's go</button>
-            </div>
-          </mat-card-content>
-        </mat-card>
-        <mat-card style="width: 50%;height: 50%;">
+        <!-- <mat-card style="width: 50%;height: 50%;">
           <mat-card-content>
             <div style="text-align: center;">
               StockApp
-              <button mat-raised-button color="accent" (click)='goToStockApp()'>let's go</button>
+              <button mat-raised-button color="accent" (click)='goToNotificationSystem()'>let's go</button>
             </div>
+          </mat-card-content>
+        </mat-card> -->
+        <mat-card class="dashboard-stock-card">
+          <mat-card-content class="dashboard-stock-card__content">
+            <span class="dashboard-stock-card__title">StockApp</span>
+            <button
+              mat-stroked-button
+              type="button"
+              class="dashboard-stock-card__cta"
+              (click)="goToStockApp()"
+            >
+              let's go
+            </button>
           </mat-card-content>
         </mat-card>
       </div>

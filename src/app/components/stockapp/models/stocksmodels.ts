@@ -16,6 +16,7 @@ export class StockPriceDetails{
   l!: number; // Low price of the day
   o!: number; // Open price of the day
   pc!: number; // Previous close price
+  lastUpdated!:Date;
 }
 
 export class RecentStockSearchDetails {
@@ -39,4 +40,11 @@ export class CompanyProfile {
   shareOutstanding!: number;
   ticker!: string;
   weburl!: string;
+}
+
+export class StockOpenAIRecommendation{
+  symbol!: string;
+  recommendation!: string;
+  confidence!: number;
+  reasoning!: string;
 }

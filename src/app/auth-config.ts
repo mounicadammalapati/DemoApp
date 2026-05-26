@@ -1,11 +1,12 @@
 import { Configuration, BrowserCacheLocation, LogLevel } from '@azure/msal-browser';
+import { environment } from '../environments/environment';
 
 export const msalConfig: Configuration = {
   auth: {
     clientId: '97e2632a-12bf-45c7-a609-53069a7d90e2',
     authority: 'https://mounicademoapp.ciamlogin.com/',
-    redirectUri: 'https://localhost:4200/profile',
-    postLogoutRedirectUri: 'http://localhost:4200'
+    redirectUri: environment.azure.redirectUri,
+    postLogoutRedirectUri: environment.azure.postLogoutRedirectUri
   },
   cache: {
     cacheLocation: BrowserCacheLocation.LocalStorage

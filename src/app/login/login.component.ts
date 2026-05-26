@@ -1,40 +1,23 @@
-import { Component, Inject } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
-import { MatSelectModule } from '@angular/material/select';
-
-import { MatCardModule } from '@angular/material/card';
+import { Component } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
-import { MSAL_GUARD_CONFIG, MsalBroadcastService, MsalGuardConfiguration, MsalService } from '@azure/msal-angular';
-import { filter, Subject, takeUntil } from 'rxjs';
-import { AuthenticationResult, EventMessage, InteractionStatus, InteractionType, PopupRequest, EventType, RedirectRequest } from '@azure/msal-browser';
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule, FormsModule, MatInputModule, MatButtonModule, MatDatepickerModule, MatNativeDateModule, MatSelectModule, MatCardModule],
+  imports: [MatIconModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrl: './login.component.css',
 })
 export class LoginComponent {
-  // Try absolute path first (with leading slash)
-  imagePath = '/assests/images/background_app.jpg';
+  constructor(private router: Router) {}
 
-  constructor(
-    private router: Router
-  ) { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-  }
-  msalLogin() {
+  msalLogin(): void {
     this.router.navigate(['/msal-login']);
   }
 
-  accessKeyLogin() {
+  accessKeyLogin(): void {
     this.router.navigate(['/accesskeylogin']);
-
   }
-
 }

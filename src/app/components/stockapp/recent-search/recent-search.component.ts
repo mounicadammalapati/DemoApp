@@ -5,6 +5,7 @@ import { MatCardModule } from '@angular/material/card';
 import { RecentStockSearchDetails } from '../models/stocksmodels';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { StockService } from '../services/stock.service';
 
 @Component({
   selector: 'app-recent-search',
@@ -16,8 +17,8 @@ export class RecentSearchComponent implements OnInit {
   recentSearchStockInfo: RecentStockSearchDetails[] = [];
   private readonly platformId = inject(PLATFORM_ID);
 
-  constructor() {
-  }
+  constructor(private stockService: StockService) {}  
+  
 
   ngOnInit(): void {
     //do subscriber to signal if there is any change in the local storage and update the recent search list accordingly
@@ -30,6 +31,27 @@ export class RecentSearchComponent implements OnInit {
   clearRecentSearches(){
     localStorage.removeItem('recentStocks');
     this.recentSearchStockInfo = [];
+  }
+
+  refreshRecentSearches(){
+    const recentStocks = localStorage.getItem('recentStocks');
+    if (recentStocks) {
+      this.recentSearchStockInfo = JSON.parse(recentStocks);
+      this.recentSearchStockInfo.forEach(stock => {
+        if(stock.stockSymbol && stock.stockSymbol.symbol){
+          this.getRefreshedStockDetails(stock.stockSymbol.symbol);
+        }
+      });
+    } else {
+      this.recentSearchStockInfo = [];
+    }
+  }
+
+  getRefreshedStockDetails(symbol: string): void {
+      //fetch the latest stock details and update the local storage with the new details
+      this.stockService.getStockDetails
+
+
   }
 
 }
