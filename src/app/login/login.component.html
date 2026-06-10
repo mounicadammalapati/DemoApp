@@ -1,29 +1,21 @@
-<div class="choice-page" role="main">
-  <div class="choice-cards">
-    <article class="choice-card choice-card--blue">
-      <div class="choice-card__pattern choice-card__pattern--blue" aria-hidden="true"></div>
-      <div class="choice-card__icon choice-card__icon--blue" aria-hidden="true">
-        <mat-icon>person</mat-icon>
-      </div>
-      <h2 class="choice-card__title">With Login</h2>
-      <p class="choice-card__subtitle">Sign in with your MSAL account</p>
-      <button type="button" class="choice-card__cta choice-card__cta--blue" (click)="msalLogin()">
-        <span class="choice-card__cta-text">Continue</span>
-        <mat-icon class="choice-card__cta-arrow" aria-hidden="true">arrow_forward</mat-icon>
+<div class="login-page" role="main">
+  <article class="login-card">
+    <div class="login-card__pattern" aria-hidden="true"></div>
+    <div class="login-card__icon" aria-hidden="true">
+      <mat-icon>person</mat-icon>
+    </div>
+    <h1 class="login-card__title">Welcome</h1>
+    <p class="login-card__subtitle">Choose how you would like to continue</p>
+    <div class="login-card__actions">
+      <button type="button" class="login-card__cta login-card__cta--primary" (click)="msalLogin()">
+        <span class="login-card__cta-text">Sign in with Microsoft</span>
+        <mat-icon class="login-card__cta-arrow" aria-hidden="true">arrow_forward</mat-icon>
       </button>
-    </article>
-
-    <article class="choice-card choice-card--green">
-      <div class="choice-card__pattern choice-card__pattern--green" aria-hidden="true"></div>
-      <div class="choice-card__icon choice-card__icon--green" aria-hidden="true">
-        <mat-icon>gpp_good</mat-icon>
-      </div>
-      <h2 class="choice-card__title">Without Login</h2>
-      <p class="choice-card__subtitle">Continue without signing in</p>
-      <button type="button" class="choice-card__cta choice-card__cta--green" (click)="accessKeyLogin()">
-        <span class="choice-card__cta-text">Continue</span>
-        <mat-icon class="choice-card__cta-arrow" aria-hidden="true">arrow_forward</mat-icon>
+      <span class="login-card__divider" aria-hidden="true">or</span>
+      <button type="button" class="login-card__cta login-card__cta--secondary" (click)="accessKeyLogin()">
+        <span class="login-card__cta-text">Continue without login</span>
+        <mat-icon class="login-card__cta-arrow" aria-hidden="true">arrow_forward</mat-icon>
       </button>
-    </article>
-  </div>
+    </div>
+  </article>
 </div>
